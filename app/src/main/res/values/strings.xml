@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Homeless Eradicator</string>
+    <string name="welcome">WELCOME BACK</string>
+    <string name="show_pwd">Show Password</string>
+    <string name="forgot">Forgot password?</string>
+    <string name="signin">Sign In</string>
+    <string name="newUser">Sign Up</string>
+    <string name="email_id">Email ID</string>
+    <string name="password">Password</string>
+    <string name="donate">DONATE</string>
+    <string name="forum">FORUM</string>
+    <string name="hide_pwd">Hide Password</string>
 </resources>

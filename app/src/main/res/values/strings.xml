@@ -8,6 +8,16 @@
     <string name="email_id">Email ID</string>
     <string name="password">Password</string>
     <string name="donate">DONATE</string>
+    <string name="details">Enter the Details</string>
+    <string name="register">Register</string>
     <string name="forum">FORUM</string>
     <string name="hide_pwd">Hide Password</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="phno">Phone number</string>
+    <string name="dob">Date of birth</string>
+    <string name="register_as_a">Register as a</string>
+    <string name="volunteer">Volunteer</string>
+    <string name="organisation_incharge">Organisation Incharge</string>
+    <string name="user">User</string>
 </resources>

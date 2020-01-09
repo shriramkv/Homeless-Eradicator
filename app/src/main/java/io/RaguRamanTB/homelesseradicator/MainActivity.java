@@ -118,8 +118,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void registerAccount() {
-//        Intent intent = new Intent(this, RegisterActivity.class);
-//        startActivity(intent);
-        Toast.makeText(this, "Registration to be done!", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 }

@@ -20,4 +20,14 @@
     <string name="volunteer">Volunteer</string>
     <string name="organisation_incharge">Organisation Incharge</string>
     <string name="user">User</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="top_donors">Top Donors</string>
+    <string name="best_ideas">Best Ideas</string>
+    <string name="ongoing_projects">Ongoing Projects</string>
+    <string name="happy_faces">Happy Faces</string>
+    <string name="my_profile">My Profile</string>
+    <string name="logout">Logout</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

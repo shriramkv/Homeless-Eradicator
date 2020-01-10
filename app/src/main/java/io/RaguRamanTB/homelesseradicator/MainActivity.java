@@ -112,9 +112,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void loginUser() {
-//        Intent i = new Intent(this, DashboardActivity.class);
-//        startActivity(i);
-        Toast.makeText(this, "Login to be done!", Toast.LENGTH_SHORT).show();
+//        Temporary Login is used now
+        Intent i = new Intent(this, FunctionsActivity.class);
+        startActivity(i);
     }
 
     private void registerAccount() {

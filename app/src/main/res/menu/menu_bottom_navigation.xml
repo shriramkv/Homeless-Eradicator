@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/topDonors"
+        android:icon="@drawable/leave_30"
+        android:title="@string/top_donors"/>
+
+    <item
+        android:id="@+id/bestIdea"
+        android:icon="@drawable/ideas"
+        android:title="@string/best_ideas"/>
+
+    <item
+        android:id="@+id/ongoingProjects"
+        android:icon="@drawable/ongoingproject"
+        android:title="@string/ongoing_projects"/>
+
+    <item
+        android:id="@+id/happyFaces"
+        android:icon="@drawable/happyfaces"
+        android:title="@string/happy_faces"/>
+
+    <item
+        android:id="@+id/myProfile"
+        android:icon="@drawable/user_profile"
+        android:title="@string/my_profile"/>
+</menu>

@@ -16,7 +16,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar">
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="vertical"
+        android:touchscreenBlocksFocus="false">
 
         <LinearLayout
             android:id="@+id/register_layout"
@@ -62,11 +64,6 @@
 
             </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/colorBackground" />
-
             <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
                 android:id="@+id/text_field_boxes4"
                 android:layout_width="match_parent"
@@ -84,11 +81,6 @@
                     android:singleLine="true" />
 
             </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/colorBackground" />
 
             <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
                 android:id="@+id/text_field_boxes5"
@@ -108,11 +100,6 @@
 
             </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/colorBackground" />
-
             <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
                 android:id="@+id/text_field_boxes6"
                 android:layout_width="match_parent"
@@ -130,11 +117,6 @@
                     android:singleLine="true" />
 
             </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/colorBackground" />
 
             <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
                 android:id="@+id/text_field_boxes7"
@@ -154,11 +136,6 @@
 
             </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/colorBackground" />
-
             <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
                 android:id="@+id/text_field_boxes8"
                 android:layout_width="match_parent"
@@ -172,6 +149,42 @@
                     android:id="@+id/dob"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                android:id="@+id/text_field_boxes9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:endIcon="@drawable/password_b"
+                app:hasClearButton="true"
+                app:labelText="@string/password">
+
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/reg_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:singleLine="true" />
+
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                android:id="@+id/text_field_boxes10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:endIcon="@drawable/password_b"
+                app:hasClearButton="true"
+                app:labelText="@string/confirm_password">
+
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/reg_conf_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:singleLine="true" />
 
             </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 

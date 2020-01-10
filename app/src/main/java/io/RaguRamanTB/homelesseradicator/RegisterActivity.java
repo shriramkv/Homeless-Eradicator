@@ -84,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.register:
-                Toast.makeText(this,"Regration process to be done!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Registration process to be done!",Toast.LENGTH_SHORT).show();
                 break;
 
         }

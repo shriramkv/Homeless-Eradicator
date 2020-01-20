@@ -1,4 +1,4 @@
-package io.RaguRamanTB.homelesseradicator;
+package io.RaguRamanTB.homelesseradicator.activities;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import io.RaguRamanTB.homelesseradicator.R;
 import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{

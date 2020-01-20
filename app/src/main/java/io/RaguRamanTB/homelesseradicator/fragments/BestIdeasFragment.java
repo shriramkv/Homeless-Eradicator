@@ -1,4 +1,4 @@
-package io.RaguRamanTB.homelesseradicator;
+package io.RaguRamanTB.homelesseradicator.fragments;
 
 import android.os.Bundle;
 
@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class HappyFacesFragment extends Fragment {
+import io.RaguRamanTB.homelesseradicator.R;
 
-    public HappyFacesFragment() {
+public class BestIdeasFragment extends Fragment {
+
+    public BestIdeasFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +25,6 @@ public class HappyFacesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_happy_faces, container, false);
+        return inflater.inflate(R.layout.fragment_best_ideas, container, false);
     }
-
 }

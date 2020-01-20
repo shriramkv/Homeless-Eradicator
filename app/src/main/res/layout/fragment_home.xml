@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.BestIdeasFragment">
+    tools:context=".fragments.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/best_ideas"
+        android:text="@string/home"
         android:textAlignment="center"
         android:gravity="center"
         android:textSize="25sp"/>

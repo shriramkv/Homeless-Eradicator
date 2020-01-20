@@ -1,4 +1,4 @@
-package io.RaguRamanTB.homelesseradicator;
+package io.RaguRamanTB.homelesseradicator.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,14 +8,24 @@ import androidx.fragment.app.Fragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import io.RaguRamanTB.homelesseradicator.fragments.BestIdeasFragment;
+import io.RaguRamanTB.homelesseradicator.fragments.HappyFacesFragment;
+import io.RaguRamanTB.homelesseradicator.fragments.HomeFragment;
+import io.RaguRamanTB.homelesseradicator.fragments.MyProfileFragment;
+import io.RaguRamanTB.homelesseradicator.fragments.OngoingProjectsFragment;
+import io.RaguRamanTB.homelesseradicator.R;
+import io.RaguRamanTB.homelesseradicator.fragments.TopDonorsFragment;
+
 public class FunctionsActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +36,26 @@ public class FunctionsActivity extends AppCompatActivity implements BottomNaviga
         toolbar.setNavigationIcon(R.drawable.heart_30);
         setSupportActionBar(toolbar);
 
-        loadFragment(new TopDonorsFragment());
+        loadFragment(new HomeFragment());
 
         BottomNavigationView navigationView = findViewById(R.id.bottomNavigationView);
         navigationView.setOnNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to SIGNOUT", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
     }
 
     @Override
@@ -40,15 +66,13 @@ public class FunctionsActivity extends AppCompatActivity implements BottomNaviga
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.logout:
-                logout();
-                break;
+        if (item.getItemId() == R.id.profile) {
+            loadFragment(new MyProfileFragment());
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void logout() {
+/*    private void logout() {
         AlertDialog alertDialog;
         AlertDialog.Builder builder = new AlertDialog.Builder(FunctionsActivity.this);
         builder.setMessage("Do you really want to Logout?")
@@ -70,6 +94,7 @@ public class FunctionsActivity extends AppCompatActivity implements BottomNaviga
         alertDialog.setTitle("Logout Confirmation");
         alertDialog.show();
     }
+*/
 
     private boolean loadFragment(Fragment fragment) {
         if (fragment != null) {
@@ -88,6 +113,11 @@ public class FunctionsActivity extends AppCompatActivity implements BottomNaviga
         Fragment fragment = null;
 
         switch (item.getItemId()) {
+
+            case R.id.home:
+                fragment = new HomeFragment();
+                break;
+
             case R.id.topDonors:
                 fragment = new TopDonorsFragment();
                 break;
@@ -102,10 +132,6 @@ public class FunctionsActivity extends AppCompatActivity implements BottomNaviga
 
             case R.id.happyFaces:
                 fragment = new HappyFacesFragment();
-                break;
-
-            case R.id.myProfile:
-                fragment = new MyProfileFragment();
                 break;
         }
 

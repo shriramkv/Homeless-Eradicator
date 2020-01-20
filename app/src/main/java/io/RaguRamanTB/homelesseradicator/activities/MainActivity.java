@@ -1,4 +1,4 @@
-package io.RaguRamanTB.homelesseradicator;
+package io.RaguRamanTB.homelesseradicator.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import io.RaguRamanTB.homelesseradicator.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static EditText emailId, password;

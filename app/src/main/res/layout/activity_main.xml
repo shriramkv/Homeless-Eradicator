@@ -126,12 +126,22 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:gravity="end"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:text="@string/want_to_stay_anonymous"
+                android:textColor="@color/textBlack"
+                android:textSize="17sp" />
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="8dp"
-                android:layout_marginTop="17dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:paddingBottom="5dp">

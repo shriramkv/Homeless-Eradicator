@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- When item pressed this item will be triggered -->
+    <item android:state_pressed="true"><shape android:shape="rectangle">
+            <corners android:radius="7dp" />
+
+            <solid android:color="@color/cardview_shadow_start_color" />
+        </shape></item>
+
+    <!-- By default the background will be this item -->
+    <item><shape android:shape="rectangle">
+            <corners android:radius="7dp" />
+
+            <solid android:color="@color/colorAccent" />
+        </shape></item>
+
+</selector>

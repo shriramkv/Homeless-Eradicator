@@ -188,6 +188,42 @@
 
             </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                android:id="@+id/text_field_boxes11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:endIcon="@drawable/home_b"
+                app:hasClearButton="true"
+                app:labelText="Organisation Name (If Org. In-charge)">
+
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/org_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true" />
+
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                android:id="@+id/text_field_boxes12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:endIcon="@drawable/location"
+                app:hasClearButton="true"
+                app:labelText="Organisation Address (If Org. In-charge)">
+
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/org_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true" />
+
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
             <TextView
                 android:textAllCaps="true"
                 android:layout_width="match_parent"

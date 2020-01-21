@@ -7,25 +7,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
-
-import java.util.ArrayList;
+import android.widget.Button;
+import android.widget.Toast;
 
 import io.RaguRamanTB.homelesseradicator.R;
-import io.RaguRamanTB.homelesseradicator.adapters.GridAdapter;
-import io.RaguRamanTB.homelesseradicator.models.GridItem;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
-    View view;
-    GridAdapter adapter;
-    GridView gridView;
-
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    private Button homeless, forum, donate;
+    private View view;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -36,29 +26,30 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
-        gridView = view.findViewById(R.id.landing_grid);
-        adapter = new GridAdapter(getActivity(),getData());
-        gridView.setAdapter(adapter);
+        homeless = view.findViewById(R.id.homeless_identified);
+        forum = view.findViewById(R.id.userForum);
+        donate = view.findViewById(R.id.userDonate);
+
+        homeless.setOnClickListener(this);
+        forum.setOnClickListener(this);
+        donate.setOnClickListener(this);
         return view;
     }
 
-    private ArrayList<GridItem> getData() {
-        ArrayList<GridItem> menuItems = new ArrayList<>();
-        GridItem m = new GridItem();
-        m.setGridPicture(R.drawable.homeless);
-        m.setGridText("Homeless Identified");
-        menuItems.add(m);
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.homeless_identified:
+                Toast.makeText(getContext(),"Go to homeless identified!",Toast.LENGTH_SHORT).show();
+                break;
 
-        m = new GridItem();
-        m.setGridPicture(R.drawable.donate);
-        m.setGridText("Donate");
-        menuItems.add(m);
+            case R.id.userForum:
+                Toast.makeText(getContext(),"Go to Forum!",Toast.LENGTH_SHORT).show();
+                break;
 
-        m = new GridItem();
-        m.setGridPicture(R.drawable.forum);
-        m.setGridText("Forum");
-        menuItems.add(m);
-
-        return menuItems;
+            case R.id.userDonate:
+                Toast.makeText(getContext(),"Go to Donate!",Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }

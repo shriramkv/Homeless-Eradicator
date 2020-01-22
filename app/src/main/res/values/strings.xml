@@ -30,8 +30,8 @@
     <string name="home">Home</string>
     <string name="want_to_stay_anonymous">Want to stay anonymous?</string>
     <string name="homeless_identified">Homeless Identified</string>
-    <string name="upload_the_image_of_the_homeless">Upload the image of the homeless</string>
-    <string name="attach">Attach</string>
+    <string name="upload_the_image_of_the_homeless">Capture the homeless</string>
+    <string name="attach">Capture</string>
     <string name="what_would_you_like_to_do">What would you like to do ?</string>
     <string name="pickup">Pickup</string>
     <string name="drop">Drop</string>

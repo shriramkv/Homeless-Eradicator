@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
@@ -43,10 +45,6 @@ public class HomelessIdentifiedActivity extends AppCompatActivity implements Vie
             }
         });
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST);
-        }
-
         imageView = findViewById(R.id.attachedImage);
         attach = findViewById(R.id.attachImage);
         pickup = findViewById(R.id.pickup);
@@ -59,33 +57,28 @@ public class HomelessIdentifiedActivity extends AppCompatActivity implements Vie
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case PERMISSION_REQUEST:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this,"Permission Granted!",Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(this, "Permission Denied!",Toast.LENGTH_SHORT).show();
-                    finish();
-                }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == PERMISSION_REQUEST) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this,"Permission Granted!",Toast.LENGTH_SHORT).show();
+                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, RESULT_LOAD_IMAGE);
+            } else {
+                Toast.makeText(this,"Permission Denied!",Toast.LENGTH_SHORT).show();
+                finish();
+            }
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case RESULT_LOAD_IMAGE:
-                if (resultCode == RESULT_OK) {
-                    Uri selectedImage = data.getData();
-                    String[] filePathColumn = {MediaStore.Images.Media.DATA};
-                    Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
-                    cursor.moveToFirst();
-                    int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                    String picturePath = cursor.getString(columnIndex);
-                    cursor.close();
-                    imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-                }
+//        super.onActivityResult(requestCode, resultCode, data);
+        if ((requestCode == RESULT_LOAD_IMAGE) && (resultCode == Activity.RESULT_OK)) {
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            imageView.setImageBitmap(photo);
         }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -106,8 +99,16 @@ public class HomelessIdentifiedActivity extends AppCompatActivity implements Vie
     }
 
     private void attachImage() {
-        Intent intent = new Intent(Intent.ACTION_PICK,
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, RESULT_LOAD_IMAGE);
+//        Intent intent = new Intent(Intent.ACTION_PICK,
+//                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//        startActivityForResult(intent, RESULT_LOAD_IMAGE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST);
+        } else {
+            Intent intent = new Intent (android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent, RESULT_LOAD_IMAGE);
+        }
+
     }
 }

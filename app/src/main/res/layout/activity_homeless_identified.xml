@@ -52,7 +52,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/loginbutton_selector"
-                android:drawableStart="@drawable/attach_45"
+                android:drawableStart="@drawable/camera_35"
                 android:drawablePadding="15dp"
                 android:padding="15dp"
                 android:text="@string/attach"

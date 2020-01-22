@@ -112,11 +112,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void goToForumActivity() {
-        Toast.makeText(this, "Go to Forum to be done!", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, ForumActivity.class);
+        startActivity(intent);
     }
 
     private void goToDonateActivity() {
-        Toast.makeText(this, "Go to Donate to be done!", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, DonateActivity.class);
+        startActivity(intent);
     }
 
     private void loginUser() {

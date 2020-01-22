@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -18,7 +17,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import io.RaguRamanTB.homelesseradicator.fragments.BestIdeasFragment;
 import io.RaguRamanTB.homelesseradicator.fragments.HappyFacesFragment;
 import io.RaguRamanTB.homelesseradicator.fragments.HomeFragment;
-import io.RaguRamanTB.homelesseradicator.fragments.MyProfileFragment;
 import io.RaguRamanTB.homelesseradicator.fragments.OngoingProjectsFragment;
 import io.RaguRamanTB.homelesseradicator.R;
 import io.RaguRamanTB.homelesseradicator.fragments.TopDonorsFragment;
@@ -67,7 +65,8 @@ public class FunctionsActivity extends AppCompatActivity implements BottomNaviga
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.profile) {
-            loadFragment(new MyProfileFragment());
+            Intent intent = new Intent(this, MyProfileActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

@@ -1,5 +1,6 @@
 package io.RaguRamanTB.homelesseradicator.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import io.RaguRamanTB.homelesseradicator.R;
+import io.RaguRamanTB.homelesseradicator.activities.DonateActivity;
+import io.RaguRamanTB.homelesseradicator.activities.ForumActivity;
+import io.RaguRamanTB.homelesseradicator.activities.HomelessIdentifiedActivity;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
@@ -40,15 +44,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.homeless_identified:
-                Toast.makeText(getContext(),"Go to homeless identified!",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), HomelessIdentifiedActivity.class);
+                startActivity(intent);
                 break;
 
             case R.id.userForum:
-                Toast.makeText(getContext(),"Go to Forum!",Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(getContext(), ForumActivity.class);
+                startActivity(intent2);
                 break;
 
             case R.id.userDonate:
-                Toast.makeText(getContext(),"Go to Donate!",Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(getContext(), DonateActivity.class);
+                startActivity(intent1);
                 break;
         }
     }

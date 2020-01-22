@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.FunctionsActivity"></activity>
+        <activity android:name=".activities.ForumActivity"></activity>
+        <activity android:name=".activities.DonateActivity" />
+        <activity android:name=".activities.MyProfileActivity" />
+        <activity android:name=".activities.HomelessIdentifiedActivity" />
+        <activity android:name=".activities.FunctionsActivity" />
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>

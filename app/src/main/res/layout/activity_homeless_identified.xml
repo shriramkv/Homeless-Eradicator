@@ -15,4 +15,103 @@
         android:paddingStart="10dp"
         app:titleTextColor="@color/textWhite" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/homeless_toolbar"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/attachedImage"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="end"
+                android:padding="5dp"
+                android:text="@string/upload_the_image_of_the_homeless"
+                android:textColor="@color/textBlack"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/attachImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/loginbutton_selector"
+                android:drawableStart="@drawable/attach_45"
+                android:drawablePadding="15dp"
+                android:padding="15dp"
+                android:text="@string/attach"
+                android:textColor="@color/textWhite"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="end"
+                android:padding="5dp"
+                android:text="@string/what_would_you_like_to_do"
+                android:textColor="@color/textBlack"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginEnd="13dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/pickup"
+                        android:layout_width="145dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/loginbutton_selector"
+                        android:drawableStart="@drawable/pickup_35"
+                        android:drawablePadding="15dp"
+                        android:padding="15dp"
+                        android:text="@string/pickup"
+                        android:textColor="@color/textWhite"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/drop"
+                        android:layout_width="145dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/loginbutton_selector"
+                        android:drawableStart="@drawable/drop"
+                        android:layout_alignParentEnd="true"
+                        android:drawablePadding="15dp"
+                        android:padding="15dp"
+                        android:text="@string/drop"
+                        android:textColor="@color/textWhite"
+                        android:textSize="18sp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

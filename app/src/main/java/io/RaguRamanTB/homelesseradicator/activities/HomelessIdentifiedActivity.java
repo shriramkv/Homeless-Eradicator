@@ -99,9 +99,6 @@ public class HomelessIdentifiedActivity extends AppCompatActivity implements Vie
     }
 
     private void attachImage() {
-//        Intent intent = new Intent(Intent.ACTION_PICK,
-//                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//        startActivityForResult(intent, RESULT_LOAD_IMAGE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST);

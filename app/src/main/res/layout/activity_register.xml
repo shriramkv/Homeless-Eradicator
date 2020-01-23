@@ -235,6 +235,18 @@
                 android:textSize="20sp" />
 
             <CheckBox
+                android:id="@+id/userCheckbox"
+                android:layout_width="wrap_content"
+                android:textAllCaps="true"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:layout_weight="10"
+                android:text="@string/user"
+                android:checked="true"
+                android:textColor="@color/textBlack"
+                android:textSize="16sp"/>
+
+            <CheckBox
                 android:id="@+id/volCheckbox"
                 android:layout_width="wrap_content"
                 android:textAllCaps="true"
@@ -245,16 +257,6 @@
                 android:textColor="@color/textBlack"
                 android:textSize="16sp" />
 
-            <CheckBox
-                android:id="@+id/userCheckbox"
-                android:layout_width="wrap_content"
-                android:textAllCaps="true"
-                android:layout_height="0dp"
-                android:layout_margin="10dp"
-                android:layout_weight="10"
-                android:text="@string/user"
-                android:textColor="@color/textBlack"
-                android:textSize="16sp"/>
 
             <CheckBox
                 android:id="@+id/orgCheckbox"

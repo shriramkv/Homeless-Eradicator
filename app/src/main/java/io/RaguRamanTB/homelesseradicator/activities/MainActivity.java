@@ -16,11 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import io.RaguRamanTB.homelesseradicator.helpers.BackgroundWorker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -122,9 +118,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void loginUser() {
-//        Temporary Login is used now
-        Intent i = new Intent(this, FunctionsActivity.class);
-        startActivity(i);
+        String getEmailId = emailId.getText().toString();
+        String getPassword = password.getText().toString();
+
+        String type = "Login";
+
+        if (getEmailId.equals("") || getEmailId.length() == 0 || getPassword.equals("") || getPassword.length() == 0) {
+            Toast.makeText(this, "Enter the credentials!", Toast.LENGTH_SHORT).show();
+        } else {
+            BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+            backgroundWorker.execute(type, getEmailId, getPassword);
+        }
     }
 
     private void registerAccount() {

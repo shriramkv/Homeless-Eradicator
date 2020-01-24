@@ -3,10 +3,8 @@ package io.RaguRamanTB.homelesseradicator.helpers;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
-import android.widget.ProgressBar;
-
-import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,6 +16,8 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+
+import io.RaguRamanTB.homelesseradicator.activities.FunctionsActivity;
 
 public class BackgroundWorker extends AsyncTask <String, Void, String> {
 
@@ -33,6 +33,7 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
     protected String doInBackground(String... voids) {
         String type = voids[0];
         String register_url = "https://a4416073.ngrok.io/register.php";
+        String login_url = "https://a4416073.ngrok.io/login.php";
         if (type.equals("Register")) {
             try {
                 String getName = voids[1];
@@ -101,6 +102,41 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
                 e.printStackTrace();
             }
 
+        } else if (type.equals("Login")) {
+            try {
+                String getEmailId = voids[1];
+                String getPassword = voids[2];
+
+                URL url = new URL(login_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("getEmailId","UTF-8")+"="+URLEncoder.encode(getEmailId,"UTF-8")+"&"
+                        +URLEncoder.encode("getPassword","UTF-8")+"="+URLEncoder.encode(getPassword,"UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                String result="";
+                String line="";
+                while ((line = bufferedReader.readLine())!=null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return null;
     }
@@ -108,7 +144,7 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
     @Override
     protected void onPreExecute() {
         progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("Loading Registration status ... ");
+        progressDialog.setMessage("Loading Status ... ");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
     }
@@ -117,16 +153,20 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
     protected void onPostExecute(String result) {
         progressDialog.dismiss();
         alertDialog = new AlertDialog.Builder(context).create();
-        alertDialog.setTitle("Registration Status");
-        alertDialog.setMessage(result);
-        alertDialog.show();
-//        Toast.makeText(context,result,Toast.LENGTH_LONG).show();
-//        String message = result.substring(0,14);
-//        if (message.equals("Login Success!")) {
-//            Intent i = new Intent(context, FunctionsActivity.class);
-//            context.startActivity(i);
-//            alertDialog.hide();
-//        }
+        if (result.equals("Login Success!")) {
+            Intent i = new Intent(context, FunctionsActivity.class);
+            context.startActivity(i);
+        } else if (result.equals("Registered Successfully!")){
+            alertDialog.setTitle("Registration Status");
+            alertDialog.setMessage(result);
+            alertDialog.show();
+            alertDialog.setCancelable(true);
+        } else {
+            alertDialog.setTitle("Invalid Username/Password");
+            alertDialog.setMessage(result);
+            alertDialog.show();
+            alertDialog.setCancelable(true);
+        }
     }
 
     @Override

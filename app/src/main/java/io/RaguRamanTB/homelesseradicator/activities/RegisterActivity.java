@@ -27,7 +27,7 @@ import io.RaguRamanTB.homelesseradicator.R;
 import io.RaguRamanTB.homelesseradicator.helpers.BackgroundWorker;
 import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String regEx = "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}\\b";
 
@@ -82,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 month = month + 1;
-                String date = dayOfMonth+"/"+month+"/"+year;
+                String date = dayOfMonth + "/" + month + "/" + year;
                 dob.setText(date);
             }
         };
@@ -99,7 +99,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 this,
                 android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar_MinWidth,
                 mdate,
-                year,month,day);
+                year, month, day);
         dialog.show();
     }
 
@@ -135,8 +135,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         String type = "Register";
 
-        Pattern p =Pattern.compile(regEx);
-        Matcher m =p.matcher(getEmailId);
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(getEmailId);
 
         if (getName.equals("") || getName.length() == 0
                 || getAddress.equals("") || getAddress.length() == 0
@@ -145,19 +145,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 || getProfession.equals("") || getProfession.length() == 0
                 || getDob.equals("") || getDob.length() == 0
                 || getPassword.equals("") || getPassword.length() == 0) {
-            Toast.makeText(this,"All fields are required!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "All fields are required!", Toast.LENGTH_SHORT).show();
         } else if (!m.find()) {
-            Toast.makeText(this,"Enter a valid Email ID!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Enter a valid Email ID!", Toast.LENGTH_SHORT).show();
         } else if (!getConfPassword.equals(getPassword)) {
-            Toast.makeText(this,"Both passwords doesn't match!",Toast.LENGTH_SHORT).show();
-        } else if (is_org_incharge.isChecked()) {
-            if ((getOrgName.equals("") || getOrgName.length() == 0 || getOrgAddress.equals("") || getOrgAddress.length() == 0)) {
-                Toast.makeText(this,"Please enter the Organisation details if an Organisation In-charge!",Toast.LENGTH_SHORT).show();
-            }
+            Toast.makeText(this, "Both passwords doesn't match!", Toast.LENGTH_SHORT).show();
+        } else if (is_org_incharge.isChecked() && (getOrgName.equals("") || getOrgName.length() == 0 || getOrgAddress.equals("") || getOrgAddress.length() == 0)) {
+            Toast.makeText(this, "Please enter the Organisation details if an Organisation In-charge!", Toast.LENGTH_SHORT).show();
         } else {
             BackgroundWorker backgroundWorker = new BackgroundWorker(this);
             backgroundWorker.execute(type, getName, getAddress, getEmailId, getPhoneNumber, getProfession, getDob, getPassword, donation, getOrgName, getOrgAddress, is_a_volunteer, is_a_org_incharge);
-
         }
     }
 }

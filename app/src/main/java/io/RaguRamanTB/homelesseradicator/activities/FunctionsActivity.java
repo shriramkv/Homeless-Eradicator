@@ -20,6 +20,7 @@ import io.RaguRamanTB.homelesseradicator.fragments.HomeFragment;
 import io.RaguRamanTB.homelesseradicator.fragments.OngoingProjectsFragment;
 import io.RaguRamanTB.homelesseradicator.R;
 import io.RaguRamanTB.homelesseradicator.fragments.TopDonorsFragment;
+import io.RaguRamanTB.homelesseradicator.helpers.Utils;
 
 public class FunctionsActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -43,6 +44,7 @@ public class FunctionsActivity extends AppCompatActivity implements BottomNaviga
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
+            Utils.USERNAME="";
             super.onBackPressed();
             return;
         }

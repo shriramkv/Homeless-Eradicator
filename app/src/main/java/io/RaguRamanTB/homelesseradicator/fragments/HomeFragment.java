@@ -16,6 +16,7 @@ import io.RaguRamanTB.homelesseradicator.activities.DonateActivity;
 import io.RaguRamanTB.homelesseradicator.activities.ForumActivity;
 import io.RaguRamanTB.homelesseradicator.activities.HomelessIdentifiedActivity;
 import io.RaguRamanTB.homelesseradicator.helpers.BackgroundWorker;
+import io.RaguRamanTB.homelesseradicator.helpers.ForumHelper;
 import io.RaguRamanTB.homelesseradicator.helpers.Utils;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
@@ -57,8 +58,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.userForum:
-                Intent intent2 = new Intent(getContext(), ForumActivity.class);
-                startActivity(intent2);
+                ForumHelper forumHelper = new ForumHelper(getContext());
+                forumHelper.execute("All");
                 break;
 
             case R.id.userDonate:

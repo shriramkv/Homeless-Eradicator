@@ -5,6 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
 
+    <TextView
+        android:id="@+id/helloText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="7dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textAllCaps="true"
+        android:textColor="@color/textBlack"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,18 +25,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/helloText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="7dp"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textAllCaps="true"
-            android:textColor="@color/textBlack"
-            android:textSize="25sp"
-            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/homeless_identified"

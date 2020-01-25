@@ -3,7 +3,10 @@ package io.RaguRamanTB.homelesseradicator.helpers;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,6 +22,8 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+
+import io.RaguRamanTB.homelesseradicator.activities.ForumActivity;
 
 
 public class ForumPostHelper extends AsyncTask<String, Void, String> {
@@ -129,6 +134,7 @@ public class ForumPostHelper extends AsyncTask<String, Void, String> {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+            ((AppCompatActivity) context).recreate();
         }
     }
 

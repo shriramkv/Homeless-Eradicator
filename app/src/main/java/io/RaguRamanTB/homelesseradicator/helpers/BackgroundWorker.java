@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
@@ -33,8 +34,6 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
     @Override
     protected String doInBackground(String... voids) {
         String type = voids[0];
-        String register_url = "https://58f1624e.ngrok.io/register.php";
-        String login_url = "https://58f1624e.ngrok.io/login.php";
         if (type.equals("Register")) {
             try {
                 String getName = voids[1];
@@ -62,7 +61,7 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
                     isAOrgIncharge = "0";
                 }
 
-                URL url = new URL(register_url);
+                URL url = new URL(Utils.register_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
@@ -108,7 +107,7 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
                 String getEmailId = voids[1];
                 String getPassword = voids[2];
 
-                URL url = new URL(login_url);
+                URL url = new URL(Utils.login_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
@@ -138,6 +137,38 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else if (type.equals("Donate")) {
+            try {
+                String getName = voids[1];
+
+                URL url = new URL(Utils.donations_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("getName","UTF-8")+"="+URLEncoder.encode(getName,"UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                String result="";
+                String line="";
+                while ((line = bufferedReader.readLine())!=null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return null;
     }
@@ -154,10 +185,11 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
     protected void onPostExecute(String result) {
         progressDialog.dismiss();
         alertDialog = new AlertDialog.Builder(context).create();
-        String message = result.substring(0,14);
+        String loginMessage = "";
+        if (result.length() >= 14) {loginMessage = result.substring(0,14);}
+        String donateMessage = result.substring(0,8);
         int len = result.length();
-        if (message.equals("Login Success!")) {
-//            Toast.makeText(context,result,Toast.LENGTH_SHORT).show();
+        if (loginMessage.equals("Login Success!")) {
             Utils.USERNAME = result.substring(14,len);
             Intent i = new Intent(context, FunctionsActivity.class);
             context.startActivity(i);
@@ -166,6 +198,8 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
             alertDialog.setMessage(result);
             alertDialog.show();
             alertDialog.setCancelable(true);
+        } else if (donateMessage.equals("Success!")){
+            Utils.DONATIONS = result.substring(8,len);
         } else {
             alertDialog.setTitle("Invalid Username/Password");
             alertDialog.setMessage(result);

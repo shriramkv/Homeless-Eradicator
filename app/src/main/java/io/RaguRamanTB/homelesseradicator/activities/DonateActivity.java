@@ -5,10 +5,15 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import io.RaguRamanTB.homelesseradicator.R;
+import io.RaguRamanTB.homelesseradicator.helpers.BackgroundWorker;
+import io.RaguRamanTB.homelesseradicator.helpers.Utils;
 
 public class DonateActivity extends AppCompatActivity {
+
+    private TextView donateText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,5 +29,17 @@ public class DonateActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        donateText = findViewById(R.id.donateText);
+        getDonationAmount();
+    }
+
+    private void getDonationAmount() {
+        String type = "Donate";
+        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+        backgroundWorker.execute(type, Utils.USERNAME);
+
+        String donateMessage = "Your donation : Rs. "+ Utils.DONATIONS;
+        donateText.setText(donateMessage);
     }
 }

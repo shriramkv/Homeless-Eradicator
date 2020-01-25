@@ -5,13 +5,37 @@
     android:layout_height="match_parent"
     tools:context=".fragments.OngoingProjectsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/ongoing_projects"
-        android:textSize="25sp"
-        android:textAlignment="center"
-        android:gravity="center" />
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/listView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/view4"
+            android:padding="5dp"
+            android:layout_alignParentTop="true"
+            android:textColor="@color/textBlack" />
+
+        <TextView
+            android:id="@+id/ongoingText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="7dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/textBlack"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="fill_parent"
+            android:layout_height="4px"
+            android:layout_above="@+id/ongoingText"
+            android:background="@color/colorAccent" />
+    </RelativeLayout>
 
 </FrameLayout>

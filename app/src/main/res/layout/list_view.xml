@@ -5,6 +5,8 @@
     android:drawableStart="@drawable/ideas_b"
     android:drawablePadding="5dp"
     android:textSize="17sp"
+    android:layout_margin="3dp"
+    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceListItemSmall"

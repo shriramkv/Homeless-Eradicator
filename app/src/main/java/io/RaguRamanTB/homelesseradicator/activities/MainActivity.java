@@ -21,6 +21,7 @@ import io.RaguRamanTB.homelesseradicator.helpers.BackgroundWorker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import io.RaguRamanTB.homelesseradicator.R;
+import io.RaguRamanTB.homelesseradicator.helpers.ForumHelper;
 import io.RaguRamanTB.homelesseradicator.helpers.Utils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -109,8 +110,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void goToForumActivity() {
-        Intent intent = new Intent(this, ForumActivity.class);
-        startActivity(intent);
+        ForumHelper forumHelper = new ForumHelper(this);
+        forumHelper.execute("All");
     }
 
     private void goToDonateActivity() {

@@ -19,23 +19,24 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import io.RaguRamanTB.homelesseradicator.R;
-import io.RaguRamanTB.homelesseradicator.fragments.TopDonorsFragment;
+import io.RaguRamanTB.homelesseradicator.fragments.BestIdeasFragment;
+import io.RaguRamanTB.homelesseradicator.fragments.OngoingProjectsFragment;
 
-public class TopDonorsHelper extends AsyncTask<String, Void, String> {
+public class OngoingHelper extends AsyncTask<String, Void, String> {
 
     Context context;
     private ProgressDialog progressDialog;
 
-    public  TopDonorsHelper(Context ctx) {
+    public  OngoingHelper(Context ctx) {
         context = ctx;
     }
 
     @Override
     protected String doInBackground(String... voids) {
         String type = voids[0];
-        if (type.equals("GetDonors")) {
+        if (type.equals("GetOngoing")) {
             try {
-                URL url = new URL(Utils.topDonors_url);
+                URL url = new URL(Utils.ongoing_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
@@ -71,17 +72,21 @@ public class TopDonorsHelper extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         progressDialog.dismiss();
-        Utils.arrayList2.clear();
+        Utils.arrayList4.clear();
         try {
             JSONArray jsonArray = new JSONArray(result);
             JSONObject jsonObject;
             for (int i = 0; i < jsonArray.length(); i++) {
                 jsonObject = jsonArray.getJSONObject(i);
-                String name = jsonObject.optString("name");
-                String donations = jsonObject.optString("donation");
-                String totals = name + " ---- Rs. " + donations;
-                Utils.arrayList2.add(totals);
-                Fragment fragment = new TopDonorsFragment();
+                String title = jsonObject.optString("title");
+                String idea = jsonObject.optString("idea");
+                String ideaby = jsonObject.optString("ideaby");
+                if (ideaby.length() == 0) {
+                    ideaby = "Anonymous";
+                }
+                String totals = title + " : " + "\n" + idea + "\n" + "By - " + ideaby;
+                Utils.arrayList4.add(totals);
+                Fragment fragment = new OngoingProjectsFragment();
                 loadFragment(fragment);
             }
         } catch (JSONException e) {
@@ -106,4 +111,5 @@ public class TopDonorsHelper extends AsyncTask<String, Void, String> {
     protected void onProgressUpdate(Void... values) {
         super.onProgressUpdate(values);
     }
+
 }

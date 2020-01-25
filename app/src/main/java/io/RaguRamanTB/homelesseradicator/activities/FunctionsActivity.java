@@ -14,12 +14,11 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import io.RaguRamanTB.homelesseradicator.fragments.BestIdeasFragment;
 import io.RaguRamanTB.homelesseradicator.fragments.HappyFacesFragment;
 import io.RaguRamanTB.homelesseradicator.fragments.HomeFragment;
-import io.RaguRamanTB.homelesseradicator.fragments.OngoingProjectsFragment;
 import io.RaguRamanTB.homelesseradicator.R;
-import io.RaguRamanTB.homelesseradicator.fragments.TopDonorsFragment;
+import io.RaguRamanTB.homelesseradicator.helpers.BestIdeasHelper;
+import io.RaguRamanTB.homelesseradicator.helpers.OngoingHelper;
 import io.RaguRamanTB.homelesseradicator.helpers.TopDonorsHelper;
 import io.RaguRamanTB.homelesseradicator.helpers.Utils;
 
@@ -127,11 +126,15 @@ public class FunctionsActivity extends AppCompatActivity implements BottomNaviga
                 break;
 
             case R.id.bestIdea:
-                fragment = new BestIdeasFragment();
+                BestIdeasHelper bestIdeasHelper = new BestIdeasHelper(this);
+                bestIdeasHelper.execute("GetBestIdeas");
+//                fragment = new BestIdeasFragment();
                 break;
 
             case R.id.ongoingProjects:
-                fragment = new OngoingProjectsFragment();
+                OngoingHelper ongoingHelper = new OngoingHelper(this);
+                ongoingHelper.execute("GetOngoing");
+//                fragment = new OngoingProjectsFragment();
                 break;
 
             case R.id.happyFaces:

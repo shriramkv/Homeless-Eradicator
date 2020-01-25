@@ -5,13 +5,79 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HappyFacesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/happy_faces"
-        android:textSize="25sp"
-        android:textAlignment="center"
-        android:gravity="center" />
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scrollImages"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/view5"
+            android:padding="5dp"
+            android:layout_alignParentTop="true" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hh1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hh3"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hh4"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hh2"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hh5"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"/>
+            </LinearLayout>
+
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/happyFacesText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="7dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/textBlack"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="fill_parent"
+            android:layout_height="4px"
+            android:layout_above="@+id/happyFacesText"
+            android:background="@color/colorAccent" />
+    </RelativeLayout>
 
 </FrameLayout>

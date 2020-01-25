@@ -44,8 +44,9 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
                 String getPassword = voids[7];
                 String getOrgName = voids[8];
                 String getOrgAddress = voids[9];
-                String isAVolunteer = voids[10];
-                String isAOrgIncharge = voids[11];
+                String getOrgCity = voids[10];
+                String isAVolunteer = voids[11];
+                String isAOrgIncharge = voids[12];
 
                 if (isAVolunteer.equals("TRUE")) {
                     isAVolunteer = "1";
@@ -76,6 +77,7 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
                         +URLEncoder.encode("getPassword","UTF-8")+"="+URLEncoder.encode(getPassword,"UTF-8")+"&"
                         +URLEncoder.encode("getOrgName","UTF-8")+"="+URLEncoder.encode(getOrgName,"UTF-8")+"&"
                         +URLEncoder.encode("getOrgAddress","UTF-8")+"="+URLEncoder.encode(getOrgAddress,"UTF-8")+"&"
+                        +URLEncoder.encode("getOrgCity","UTF-8")+"="+URLEncoder.encode(getOrgCity,"UTF-8")+"&"
                         +URLEncoder.encode("isAVolunteer","UTF-8")+"="+URLEncoder.encode(isAVolunteer,"UTF-8")+"&"
                         +URLEncoder.encode("isAOrgIncharge","UTF-8")+"="+URLEncoder.encode(isAOrgIncharge,"UTF-8");
                 bufferedWriter.write(post_data);

@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setListeners() {
         loginButton.setOnClickListener(this);
-        forgotPassword.setOnClickListener(this);
+//        forgotPassword.setOnClickListener(this);
         signUp.setOnClickListener(this);
         donate.setOnClickListener(this);
         forum.setOnClickListener(this);
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         donate = findViewById(R.id.donate);
         forum = findViewById(R.id.forum);
         show_hide_password = findViewById(R.id.show_hide_password);
-        forgotPassword = findViewById(R.id.forgot_password);
+//        forgotPassword = findViewById(R.id.forgot_password);
         @SuppressLint("ResourceType") XmlResourceParser xrp = getResources().getXml(R.drawable.text_selector);
         try {
             ColorStateList csl = ColorStateList.createFromXml(getResources(), xrp);
@@ -91,9 +91,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 loginUser();
                 break;
 
-            case R.id.forgot_password:
-                Toast.makeText(this, "Forgot Password to be done!", Toast.LENGTH_SHORT).show();
-                break;
+//            case R.id.forgot_password:
+//                Toast.makeText(this, "Forgot Password to be done!", Toast.LENGTH_SHORT).show();
+//                break;
 
             case R.id.createAccount:
                 registerAccount();

@@ -5,13 +5,33 @@
     android:layout_height="match_parent"
     tools:context=".fragments.TopDonorsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/top_donors"
-        android:textSize="25sp"
-        android:textAlignment="center"
-        android:gravity="center" />
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/topDonorText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="7dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/textBlack"
+            android:textSize="17sp" />
 
+        <View
+            android:id="@+id/view2"
+            android:layout_width="fill_parent"
+            android:layout_height="4px"
+            android:layout_below="@+id/topDonorText"
+            android:background="@color/colorAccent"/>
+
+        <ListView
+            android:id="@+id/listView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view2"
+            android:padding="15dp"
+            android:textColor="@color/textBlack" />
+    </RelativeLayout>
 </FrameLayout>

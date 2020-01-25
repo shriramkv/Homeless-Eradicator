@@ -120,8 +120,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String getConfPassword = conf_password.getText().toString();
         String getOrgName = org_name.getText().toString();
         String getOrgAddress = org_address.getText().toString();
-
-        String donation = "0";
         String is_a_volunteer = "FALSE", is_a_org_incharge = "FALSE";
 
         if (is_volunteer.isChecked()) {
@@ -153,7 +151,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(this, "Please enter the Organisation details if an Organisation In-charge!", Toast.LENGTH_SHORT).show();
         } else {
             BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-            backgroundWorker.execute(type, getName, getAddress, getEmailId, getPhoneNumber, getProfession, getDob, getPassword, donation, getOrgName, getOrgAddress, is_a_volunteer, is_a_org_incharge);
+            backgroundWorker.execute(type, getName, getAddress, getEmailId, getPhoneNumber, getProfession, getDob, getPassword, getOrgName, getOrgAddress, is_a_volunteer, is_a_org_incharge);
         }
     }
 }

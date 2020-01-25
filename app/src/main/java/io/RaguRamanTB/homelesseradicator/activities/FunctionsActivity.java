@@ -20,6 +20,7 @@ import io.RaguRamanTB.homelesseradicator.fragments.HomeFragment;
 import io.RaguRamanTB.homelesseradicator.fragments.OngoingProjectsFragment;
 import io.RaguRamanTB.homelesseradicator.R;
 import io.RaguRamanTB.homelesseradicator.fragments.TopDonorsFragment;
+import io.RaguRamanTB.homelesseradicator.helpers.TopDonorsHelper;
 import io.RaguRamanTB.homelesseradicator.helpers.Utils;
 
 public class FunctionsActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -120,7 +121,9 @@ public class FunctionsActivity extends AppCompatActivity implements BottomNaviga
                 break;
 
             case R.id.topDonors:
-                fragment = new TopDonorsFragment();
+                TopDonorsHelper topDonorsHelper = new TopDonorsHelper(this);
+                topDonorsHelper.execute("GetDonors");
+//                fragment = new TopDonorsFragment();
                 break;
 
             case R.id.bestIdea:

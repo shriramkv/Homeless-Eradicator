@@ -12,8 +12,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import io.RaguRamanTB.homelesseradicator.R;
-import io.RaguRamanTB.homelesseradicator.activities.DonateActivity;
-import io.RaguRamanTB.homelesseradicator.activities.ForumActivity;
 import io.RaguRamanTB.homelesseradicator.activities.HomelessIdentifiedActivity;
 import io.RaguRamanTB.homelesseradicator.helpers.BackgroundWorker;
 import io.RaguRamanTB.homelesseradicator.helpers.ForumHelper;

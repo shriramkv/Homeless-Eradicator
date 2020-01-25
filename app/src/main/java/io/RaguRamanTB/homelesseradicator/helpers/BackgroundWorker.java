@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -32,8 +33,8 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
     @Override
     protected String doInBackground(String... voids) {
         String type = voids[0];
-        String register_url = "https://a4416073.ngrok.io/register.php";
-        String login_url = "https://a4416073.ngrok.io/login.php";
+        String register_url = "https://58f1624e.ngrok.io/register.php";
+        String login_url = "https://58f1624e.ngrok.io/login.php";
         if (type.equals("Register")) {
             try {
                 String getName = voids[1];
@@ -153,7 +154,11 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
     protected void onPostExecute(String result) {
         progressDialog.dismiss();
         alertDialog = new AlertDialog.Builder(context).create();
-        if (result.equals("Login Success!")) {
+        String message = result.substring(0,14);
+        int len = result.length();
+        if (message.equals("Login Success!")) {
+//            Toast.makeText(context,result,Toast.LENGTH_SHORT).show();
+            Utils.USERNAME = result.substring(14,len);
             Intent i = new Intent(context, FunctionsActivity.class);
             context.startActivity(i);
         } else if (result.equals("Registered Successfully!")){

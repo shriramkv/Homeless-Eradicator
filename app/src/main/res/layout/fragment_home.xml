@@ -12,6 +12,19 @@
         android:gravity="center"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/helloText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="7dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAllCaps="true"
+            android:textColor="@color/textBlack"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
         <Button
             android:id="@+id/homeless_identified"
             android:layout_width="300dp"

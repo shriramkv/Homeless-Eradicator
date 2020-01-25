@@ -9,17 +9,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import io.RaguRamanTB.homelesseradicator.R;
 import io.RaguRamanTB.homelesseradicator.activities.DonateActivity;
 import io.RaguRamanTB.homelesseradicator.activities.ForumActivity;
 import io.RaguRamanTB.homelesseradicator.activities.HomelessIdentifiedActivity;
+import io.RaguRamanTB.homelesseradicator.helpers.Utils;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private Button homeless, forum, donate;
     private View view;
+    private TextView welcomeText;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -33,6 +35,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         homeless = view.findViewById(R.id.homeless_identified);
         forum = view.findViewById(R.id.userForum);
         donate = view.findViewById(R.id.userDonate);
+        welcomeText = view.findViewById(R.id.helloText);
+
+        String message = "Hello, "+ Utils.USERNAME + "!";
+
+        welcomeText.setText(message);
 
         homeless.setOnClickListener(this);
         forum.setOnClickListener(this);

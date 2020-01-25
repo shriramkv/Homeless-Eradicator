@@ -25,11 +25,10 @@ import java.util.regex.Pattern;
 
 import io.RaguRamanTB.homelesseradicator.R;
 import io.RaguRamanTB.homelesseradicator.helpers.BackgroundWorker;
+import io.RaguRamanTB.homelesseradicator.helpers.Utils;
 import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-
-    public static final String regEx = "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}\\b";
 
     private Button register;
     private EditText dob;
@@ -135,7 +134,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         String type = "Register";
 
-        Pattern p = Pattern.compile(regEx);
+        Pattern p = Pattern.compile(Utils.regEx);
         Matcher m = p.matcher(getEmailId);
 
         if (getName.equals("") || getName.length() == 0

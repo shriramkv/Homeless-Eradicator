@@ -31,15 +31,8 @@ public class DonateActivity extends AppCompatActivity {
         });
 
         donateText = findViewById(R.id.donateText);
-        getDonationAmount();
-    }
 
-    private void getDonationAmount() {
-        String type = "Donate";
-        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-        backgroundWorker.execute(type, Utils.USERNAME);
-
-        String donateMessage = "Your donation : Rs. "+ Utils.DONATIONS;
-        donateText.setText(donateMessage);
+        String message = Utils.DONATIONS;
+        donateText.setText(message);
     }
 }

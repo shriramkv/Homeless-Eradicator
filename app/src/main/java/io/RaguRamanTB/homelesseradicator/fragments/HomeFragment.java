@@ -15,6 +15,7 @@ import io.RaguRamanTB.homelesseradicator.R;
 import io.RaguRamanTB.homelesseradicator.activities.DonateActivity;
 import io.RaguRamanTB.homelesseradicator.activities.ForumActivity;
 import io.RaguRamanTB.homelesseradicator.activities.HomelessIdentifiedActivity;
+import io.RaguRamanTB.homelesseradicator.helpers.BackgroundWorker;
 import io.RaguRamanTB.homelesseradicator.helpers.Utils;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
@@ -61,8 +62,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.userDonate:
-                Intent intent1 = new Intent(getContext(), DonateActivity.class);
-                startActivity(intent1);
+                String type = "Donate";
+                BackgroundWorker backgroundWorker = new BackgroundWorker(getContext());
+                backgroundWorker.execute(type, Utils.USERNAME);
                 break;
         }
     }

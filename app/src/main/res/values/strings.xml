@@ -35,4 +35,8 @@
     <string name="what_would_you_like_to_do">What would you like to do ?</string>
     <string name="pickup">Pickup</string>
     <string name="drop">Drop</string>
+    <string name="enter_donation">Amount you would like to donate</string>
+    <string name="amount_to_the_number">You can donate the amount to the number below in any of the medium</string>
+    <string name="_91_7871821036">+91 - 7871821036</string>
+    <string name="stay_anonymous">Stay anonymous</string>
 </resources>

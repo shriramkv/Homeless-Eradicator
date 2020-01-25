@@ -21,6 +21,7 @@ import io.RaguRamanTB.homelesseradicator.helpers.BackgroundWorker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import io.RaguRamanTB.homelesseradicator.R;
+import io.RaguRamanTB.homelesseradicator.helpers.Utils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static EditText emailId, password;
@@ -113,8 +114,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void goToDonateActivity() {
-        Intent intent = new Intent(this, DonateActivity.class);
-        startActivity(intent);
+        String type = "Donate";
+        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+        backgroundWorker.execute(type, Utils.USERNAME);
     }
 
     private void loginUser() {

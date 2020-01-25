@@ -15,10 +15,16 @@
         android:paddingStart="10dp"
         app:titleTextColor="@color/textWhite" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/donate_toolbar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
 
         <TextView
             android:id="@+id/donateText"
@@ -32,5 +38,85 @@
             android:textColor="@color/textBlack"
             android:textSize="25sp"
             android:textStyle="bold" />
+
+        <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+            android:id="@+id/amount_to_donate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            app:endIcon="@drawable/heart_b_30"
+            app:hasClearButton="true"
+            app:labelText="@string/enter_donation">
+
+            <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                android:id="@+id/donationAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:singleLine="true" />
+
+        </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+        <CheckBox
+            android:id="@+id/anonymous"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="10"
+            android:layout_gravity="center"
+            android:text="@string/stay_anonymous"
+            android:textColor="@color/textBlack"
+            android:textSize="16sp"
+            android:checked="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAllCaps="true"
+            android:textColor="@color/textBlack"
+            android:text="@string/amount_to_the_number"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textAllCaps="true"
+            android:textColor="@color/textBlack"
+            android:text="@string/_91_7871821036"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/gpay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/gpay_70"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:id="@+id/paytm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/paytm_70"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:id="@+id/phonepe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/phonepe_70"
+            android:layout_margin="10dp"/>
+
     </LinearLayout>
+
+    </ScrollView>
 </RelativeLayout>

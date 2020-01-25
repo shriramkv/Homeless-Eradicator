@@ -19,6 +19,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import io.RaguRamanTB.homelesseradicator.activities.DonateActivity;
 import io.RaguRamanTB.homelesseradicator.activities.FunctionsActivity;
 
 public class BackgroundWorker extends AsyncTask <String, Void, String> {
@@ -199,7 +200,13 @@ public class BackgroundWorker extends AsyncTask <String, Void, String> {
             alertDialog.show();
             alertDialog.setCancelable(true);
         } else if (donateMessage.equals("Success!")){
-            Utils.DONATIONS = result.substring(8,len);
+            Utils.DONATIONS = "Your donations : Rs. "+result.substring(8,len);
+            Intent intent1 = new Intent(context, DonateActivity.class);
+            context.startActivity(intent1);
+        } else if (donateMessage.equals("Failure!")){
+            Utils.DONATIONS = "We appreciate your intention! Thank you :)";
+            Intent intent2 = new Intent(context, DonateActivity.class);
+            context.startActivity(intent2);
         } else {
             alertDialog.setTitle("Invalid Username/Password");
             alertDialog.setMessage(result);

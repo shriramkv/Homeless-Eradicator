@@ -17,15 +17,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import io.RaguRamanTB.homelesseradicator.activities.DonateActivity;
 import io.RaguRamanTB.homelesseradicator.activities.ForumActivity;
-import io.RaguRamanTB.homelesseradicator.activities.FunctionsActivity;
 
 public class ForumHelper extends AsyncTask<String, Void, String> {
 
     Context context;
-    private AlertDialog alertDialog;
     private ProgressDialog progressDialog;
 
     public ForumHelper(Context ctx) {

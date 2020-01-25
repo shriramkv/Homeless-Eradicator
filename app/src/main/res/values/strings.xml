@@ -42,4 +42,5 @@
     <string name="title">Title (Within 20 words)</string>
     <string name="idea">Idea (Within 100 words)</string>
     <string name="post_idea">Post idea</string>
+    <string name="refresh">Refresh</string>
 </resources>

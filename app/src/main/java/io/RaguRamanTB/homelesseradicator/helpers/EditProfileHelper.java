@@ -116,17 +116,11 @@ public class EditProfileHelper extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String result) {
         progressDialog.dismiss();
         alertDialog = new AlertDialog.Builder(context).create();
-        if (result.equals("Edit profile successful!")){
-            alertDialog.setTitle("Profile Status");
-            alertDialog.setMessage(result);
-            alertDialog.show();
-            alertDialog.setCancelable(true);
-        } else {
-            alertDialog.setTitle("Internal Error");
-            alertDialog.setMessage(result);
-            alertDialog.show();
-            alertDialog.setCancelable(true);
-        }
+        alertDialog.setTitle("Profile Status");
+        alertDialog.setMessage("Edit profile successful!");
+        alertDialog.show();
+        alertDialog.setCancelable(true);
+
     }
 
     @Override

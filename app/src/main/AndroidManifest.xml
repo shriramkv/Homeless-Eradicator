@@ -3,11 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="io.RaguRamanTB.homelesseradicator">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera2.CameraDevice" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".activities.ForumActivity"></activity>
+        <activity android:name=".activities.DropHomelessActivity"></activity>
+        <activity android:name=".activities.ForumActivity" />
         <activity android:name=".activities.DonateActivity" />
         <activity android:name=".activities.MyProfileActivity" />
         <activity android:name=".activities.HomelessIdentifiedActivity" />
@@ -34,5 +30,11 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA-jTNigOJ8f3zQ6qketJ1QRVLTy7rkduo" />
     </application>
+    <uses-feature android:name="android.hardware.camera2.CameraDevice" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

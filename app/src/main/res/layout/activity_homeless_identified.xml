@@ -58,11 +58,28 @@
                 android:textColor="@color/textWhite"
                 android:textSize="18sp" />
 
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                android:id="@+id/text_field_boxes_101"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                app:endIcon="@drawable/location"
+                app:hasClearButton="true"
+                app:labelText="@string/your_location">
+
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true" />
+
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
                 android:gravity="end"
                 android:padding="5dp"
                 android:text="@string/what_would_you_like_to_do"
@@ -83,27 +100,32 @@
 
                     <Button
                         android:id="@+id/pickup"
-                        android:layout_width="145dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@drawable/loginbutton_selector"
                         android:drawableStart="@drawable/pickup_35"
                         android:drawablePadding="15dp"
                         android:padding="15dp"
-                        android:text="@string/pickup"
+                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
+                        android:text="Intimate Volunteer"
                         android:textColor="@color/textWhite"
                         android:textSize="18sp" />
 
                     <Button
                         android:id="@+id/drop"
-                        android:layout_width="145dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@drawable/loginbutton_selector"
                         android:drawableStart="@drawable/drop"
-                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/pickup"
                         android:drawablePadding="15dp"
+                        android:layout_marginTop="10dp"
                         android:padding="15dp"
+                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
                         android:text="@string/drop"
                         android:textColor="@color/textWhite"
                         android:textSize="18sp" />

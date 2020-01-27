@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DropHomelessActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/drop_homeless_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorPrimary"
+        android:paddingStart="10dp"
+        app:titleTextColor="@color/textWhite" />
+
+    <ListView
+        android:id="@+id/locationList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/drop_homeless_toolbar"
+        android:layout_above="@+id/view5"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:textColor="@color/textBlack" />
+
+    <TextView
+        android:id="@+id/dropLocationText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="7dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="@color/textBlack"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="fill_parent"
+        android:layout_height="4px"
+        android:layout_above="@+id/dropLocationText"
+        android:background="@color/colorAccent" />
+
+</RelativeLayout>

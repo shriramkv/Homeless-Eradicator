@@ -230,7 +230,7 @@
                 android:layout_margin="10dp"
                 app:endIcon="@drawable/location"
                 app:hasClearButton="true"
-                app:labelText="Organisation Address (If Org. In-charge)">
+                app:labelText="Organisation City (If Org. In-charge)">
 
                 <studio.carbonylgroup.textfieldboxes.ExtendedEditText
                     android:id="@+id/org_city"

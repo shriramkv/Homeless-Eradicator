@@ -135,7 +135,8 @@
                 android:padding="5dp"
                 android:text="@string/want_to_stay_anonymous"
                 android:textColor="@color/textBlack"
-                android:textSize="17sp" />
+                android:textSize="19sp"
+                android:textStyle="bold"/>
 
 
             <RelativeLayout

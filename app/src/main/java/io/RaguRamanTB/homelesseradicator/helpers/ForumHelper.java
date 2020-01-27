@@ -64,7 +64,7 @@ public class ForumHelper extends AsyncTask<String, Void, String> {
     @Override
     protected void onPreExecute() {
         progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("Loading Status ... ");
+        progressDialog.setMessage("Loading ... ");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
     }

@@ -63,7 +63,7 @@ public class TopDonorsHelper extends AsyncTask<String, Void, String> {
     @Override
     protected void onPreExecute() {
         progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("Loading Status ... ");
+        progressDialog.setMessage("Loading ... ");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
     }
@@ -81,9 +81,9 @@ public class TopDonorsHelper extends AsyncTask<String, Void, String> {
                 String donations = jsonObject.optString("donation");
                 String totals = name + " ---- Rs. " + donations;
                 Utils.arrayList2.add(totals);
-                Fragment fragment = new TopDonorsFragment();
-                loadFragment(fragment);
             }
+            Fragment fragment = new TopDonorsFragment();
+            loadFragment(fragment);
         } catch (JSONException e) {
             e.printStackTrace();
         }

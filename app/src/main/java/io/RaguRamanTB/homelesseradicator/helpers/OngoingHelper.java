@@ -64,7 +64,7 @@ public class OngoingHelper extends AsyncTask<String, Void, String> {
     @Override
     protected void onPreExecute() {
         progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("Loading Status ... ");
+        progressDialog.setMessage("Loading ... ");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
     }
@@ -86,9 +86,9 @@ public class OngoingHelper extends AsyncTask<String, Void, String> {
                 }
                 String totals = title + " : " + "\n" + idea + "\n" + "By - " + ideaby;
                 Utils.arrayList4.add(totals);
-                Fragment fragment = new OngoingProjectsFragment();
-                loadFragment(fragment);
             }
+            Fragment fragment = new OngoingProjectsFragment();
+            loadFragment(fragment);
         } catch (JSONException e) {
             e.printStackTrace();
         }

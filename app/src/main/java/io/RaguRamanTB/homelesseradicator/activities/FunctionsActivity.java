@@ -18,6 +18,7 @@ import io.RaguRamanTB.homelesseradicator.fragments.HappyFacesFragment;
 import io.RaguRamanTB.homelesseradicator.fragments.HomeFragment;
 import io.RaguRamanTB.homelesseradicator.R;
 import io.RaguRamanTB.homelesseradicator.helpers.BestIdeasHelper;
+import io.RaguRamanTB.homelesseradicator.helpers.GetProfileHelper;
 import io.RaguRamanTB.homelesseradicator.helpers.OngoingHelper;
 import io.RaguRamanTB.homelesseradicator.helpers.TopDonorsHelper;
 import io.RaguRamanTB.homelesseradicator.helpers.Utils;
@@ -67,35 +68,11 @@ public class FunctionsActivity extends AppCompatActivity implements BottomNaviga
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.profile) {
-            Intent intent = new Intent(this, MyProfileActivity.class);
-            startActivity(intent);
+            GetProfileHelper getProfileHelper = new GetProfileHelper(this);
+            getProfileHelper.execute("GetDetails",Utils.USERNAME);
         }
         return super.onOptionsItemSelected(item);
     }
-
-/*    private void logout() {
-        AlertDialog alertDialog;
-        AlertDialog.Builder builder = new AlertDialog.Builder(FunctionsActivity.this);
-        builder.setMessage("Do you really want to Logout?")
-                .setCancelable(true)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                        finish();
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-        alertDialog = builder.create();
-        alertDialog.setTitle("Logout Confirmation");
-        alertDialog.show();
-    }
-*/
 
     private boolean loadFragment(Fragment fragment) {
         if (fragment != null) {
